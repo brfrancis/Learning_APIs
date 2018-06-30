@@ -8,13 +8,11 @@ ipak <- function(pkg){
 ipak(c("httr","jsonlite","httpuv"))
 
 oauth_endpoints("github")
-
-# Change based on what you 
 myapp <- oauth_app(appname = "Learning_APIs",
                    key = "8c46a98ddd4c6ae1a24e",
                    secret = "57f5cdfc6a523060ef6dd85b4c822a8ac4687ade")
 
-# Get OAuth credentials
+## Get OAuth credentials
 github_token <- oauth2.0_token(oauth_endpoints("github"), myapp)
 
 # Use API
@@ -30,5 +28,4 @@ json1 = content(req)
 # Convert to a data.frame
 gitDF = jsonlite::fromJSON(jsonlite::toJSON(json1))
 
-# Subset data.frame
-gitDF[gitDF$full_name == "jtleek/datasharing", "created_at"] 
+
